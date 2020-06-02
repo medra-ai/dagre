@@ -109,9 +109,15 @@ declare module '@dagrejs/dagre' {
     labeloffest?: number | undefined;
   }
 
+  export interface OrderConstraint {
+    left: string;
+    right: string;
+  }
+
   export interface LayoutConfig {
     customOrder?: (graph: graphlib.Graph, order: (graph: graphlib.Graph, opts: configUnion) => void) => void;
     disableOptimalOrderHeuristic?: boolean;
+    constraints?: OrderConstraint[];
   }
 
   type configUnion = GraphLabel & NodeConfig & EdgeConfig & LayoutConfig;
